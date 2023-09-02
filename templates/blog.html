@@ -22,6 +22,7 @@
     <h4><a href="{{page.permalink}}">{{ page.title }}</a><span style="font-weight: 400;"> - {{page.date |
             date(format="%B %e, %Y")}}</span></h4>
     <p>{{page.summary|safe}}</p>
+    <a href="{{page.permalink}}">Read more &raquo;</a>
     {% endfor %}
 </div>
 <nav aria-label="Page navigation">
