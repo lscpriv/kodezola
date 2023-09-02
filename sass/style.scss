@@ -1,0 +1,32 @@
+$primary: #0d6775;
+$link-decoration: none;
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+html,
+body {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-synthesis: none;
+    hyphens: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 800;
+}
+
+.headline {
+    font-size: 16pt;
+}
+
+code,
+pre {
+    font-family: 'Space Mono', monospace;
+}
+
+img {
+    @extend .img-fluid, .mx-auto, .d-block;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="/style.css">
+    <meta name="description"
+        content="Hello, my name is Christopher Snowhill, or kode54, and I've been writing software since as long as I can remember.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Christopher Snowhill">
+    <meta property="og:image" content="https://secure.gravatar.com/avatar/d06436ad17e8bce09279190a9b085ff2?s=1024">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="kode54.net">
+    <meta name="twitter:title" content="Christopher Snowhill">
+    <meta name="twitter:description"
+        content="Hello, my name is Christopher Snowhill, or kode54, and I've been writing software since as long as I can remember.">
+    <meta name="twitter:image" content="https://secure.gravatar.com/avatar/d06436ad17e8bce09279190a9b085ff2?s=1024">
+    <title>{% block title %}Christopher Snowhill{% endblock %}</title>
+    {% block rss %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=" rss.xml",
+        trailing_slash=false)}}">
+    {% endblock %}
+</head>
+
+<body>
+    <div class="container py-4 px-3 mx-auto my-auto">
+        {% block content %} {% endblock %}
+    </div>
+    <div class="footer">
+        <div class="container py-4 px-3 mx-auto my-auto"><em>&copy; 2000&mdash;2023 Christopher Snowhill. All rights
+                reserved except where indicated.</em>
+            <div class="float-end"><a href="https://www.netlify.com"><img
+                        src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg"
+                        alt="Deploys by Netlify"></a></div>
+        </div>
+    </div>
+    <script src="/autoDarkMode.js"> </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} {{page.title}} - Christopher Snowhill {% endblock title%}
+
+{% block content %}
+<h3>Christopher Snowhill</h3>
+<h4>Blog</h3>
+    {% if page.lower %}
+    <div class="float-start">
+        <a href="{{page.lower.permalink}}">&laquo; {{page.lower.title}}</a>
+    </div>
+    {% endif %}
+    {% if page.higher %}
+    <div class="float-end">
+        <a href="{{page.higher.permalink}}">{{page.higher.title}} &raquo;</a>
+    </div>
+    {% endif %}
+    <br />
+    <div class="float-none">
+        <h1>{{page.title}}</h1>
+    </div>
+    <em>{{page.date | date(format="%B %e, %Y")}}</em>
+    <hr />
+    {{page.content | safe}}
+    {% endblock content %}

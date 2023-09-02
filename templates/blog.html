@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %} {{section.title}} - Christopher Snowhill {% endblock title%}
+
+{% block content %}
+<h3>Christopher Snowhill</h3>
+<h1>{{section.title}}</h1>
+
+{% if section.extra.archive %}
+<div class="alert alert-warning">
+    Warning: This is a really old blog backup, and a lot of my attitudes weren't realy that great back then. I've
+    changed
+    significantly since then, so some of the things I may have said back then were somewhat problematic. Try not to
+    think
+    too poorly of me reading this old mess.
+</div>
+
+{% endif %}
+
+<div class="posts">
+    {% for page in paginator.pages %}
+    <h4><a href="{{page.permalink}}">{{ page.title }}</a><span style="font-weight: 400;"> - {{page.date |
+            date(format="%B %e, %Y")}}</span></h4>
+    <p>{{page.summary|safe}}</p>
+    {% endfor %}
+</div>
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        {% if paginator.previous %}
+        <li class="page-item"><a class="page-link" href="{{ paginator.previous }}">‹ Previous</a></li>
+        {% endif %}
+        {% if paginator.next %}
+        <li class="page-item"><a class="page-link" href="{{ paginator.next }}">Next ›</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+{% endblock content %}
