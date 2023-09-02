@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 
 {% block title %} {{page.title}} - Christopher Snowhill {% endblock title%}
-
 {% block content %}
-<h3>Christopher Snowhill</h3>
-<h4>Blog</h3>
+<h3><a href="/">Christopher Snowhill</a></h3>
+<h4><a href="/{{page.components.0}}">Blog {% if page.components.0 == "blog-archive" %}archive{%endif%}</a></h3>
     {% if page.lower %}
     <div class="float-start">
         <a href="{{page.lower.permalink}}">&laquo; {{page.lower.title}}</a>

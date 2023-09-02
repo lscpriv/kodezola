@@ -1,22 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Christopher &ldquo;kode54&rdquo; Snowhill</h1><img class="img-thumbnail rounded float-start me-3"
-    src="https://secure.gravatar.com/avatar/d06436ad17e8bce09279190a9b085ff2?s=128" alt="My face" />
-<p class="headline"> My name is <strong>Christopher Snowhill</strong>, or <code>kode54</code>, and I&apos;ve been
-    writing random software for as long as I&apos;ve had computers with a programming language to tinker with.<br />I am
-    the main developer of <a href="https://cog.losno.co">Cog</a>, an audio player for macOS, and also an occasional
-    contributor to various other free and open source projects, including the Linux kernel.</p>
-<p>I&apos;ve been tinkering with electronics and computers for most of my life, and I used to (semi-destructively) take
-    things apart, but nowadays, I mostly only repair things as needed. I got my start on an Apple II+, and barely used a
-    Commodore 64, and the IBM PC compatibles belonging to relatives. It would be years before I finally got a PC of my
-    own and actually learned any productive use of programming languages for it.</p>
-<p>These days, I&apos;d say I&apos;m fairly competent in C/C++, JavaScript, and maybe some PHP, and still have the faint
-    memories of my early use of 6502 and 65816 assembly language.</p>
-<p>I have made a number of minor contributions to various projects, including a number of console emulators, like <a
-        href="https://www.zsnes.com/">ZSNES</a> and <a href="http://www.snes9x.com/">Snes9X</a>, and later <a
-        href="https://github.com/higan-emu/higan">higan</a>. I have also contributed several patches to the Linux
-    kernel, some of which are still useful today.</p>
+<h1>{{section.title}}</h1>
+
+<h2><a href="{{get_url(path="@/blog/_index.md")}}" >Blog <span class="badge bg-secondary">New!</span></a></h2>
+
+{{section.content|safe}}
 <hr />
 <h2>Donate</h2>
 <ul class="list-inline">
@@ -38,5 +27,6 @@
     <li class="list-inline-item"><a href="https://www.threads.net/@kode54" target="_self" rel="me">Threads</a></li>
     <li class="list-inline-item"><a href="https://t.me/kode54" target="_self" rel="me">Telegram</a></li>
 </ul>
-<hr /><a class="btn btn-primary btn-lg btn-block" href="contact" role="button">Contact me</a>
+<hr /><a class="btn btn-primary btn-lg btn-block" href="{{get_url(path="@/contact/_index.md")}}" role="button">Contact
+    me</a>
 {% endblock content %}

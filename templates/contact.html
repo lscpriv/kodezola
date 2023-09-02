@@ -5,7 +5,7 @@
 {% block content %}
 <h1>Contact me by e-mail</h1>
 <div class="alert alert-warning" role="alert"><span>If you're contacting me about my foobar2000 components, <a
-            href="fb2k">read this</a> first.</span></div>
+            href="{{get_url(path="@/fb2k.md")}}">read this</a> first.</span></div>
 <form name="contact" method="post" data-netlify="true" data-netlify-recaptcha="true">
     <div class="mb-3"></div><label for="name">Name</label><input class="form-control" id="name" type="text" name="name"
         placeholder="Enter your name" required="" />
