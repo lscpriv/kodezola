@@ -21,4 +21,14 @@
     <em>{{page.date | date(format="%B %e, %Y")}}</em>
     <hr />
     {{page.content | safe}}
+    <hr/>
+    {% if page.components.0 != "blog-archive" %}
+    <script src="https://utteranc.es/client.js"
+        repo="losnoco/kode54.net.comments"
+        issue-term="{{page.slug}}"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+    {% endif %}
     {% endblock content %}

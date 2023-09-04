@@ -24,11 +24,41 @@
 </head>
 
 <body>
-    <div class="container py-4 px-3 mx-auto my-auto">
-        {% block content %} {% endblock %}
+    <div class="container-xxl py-4 px-3 mx-auto my-auto">
+        <div class="row">
+            <div class="col-12 col-md-8">        
+            {% block content %} {% endblock %}
+            </div>
+            <div class="col-12 col-md-4">
+                <h2>Donate</h2>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://paypal.me/kode54" target="_self">PayPal</a></li>
+                    <li class="list-inline-item"><a href="https://ko-fi.com/kode54" target="_self">Ko-fi</a></li>
+                    <li class="list-inline-item"><a href="https://patreon.com/kode54" target="_self">Patreon</a></li>
+                    <li class="list-inline-item"><a href="https://github.com/sponsors/kode54" target="_self">GitHub Sponsors</a></li>
+                </ul>
+                <hr />
+                <h2>Social media links </h2>
+                <div class="alert alert-warning" role="alert"><span>I am <strong>NOT</strong> on Twitter/"X". Anyone under the username
+                        <code>kode54</code> in that service is an impostor.</span></div>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://social.losno.co/@chris" target="_self" rel="me">Mastodon</a></li>
+                    <li class="list-inline-item"><a href="https://discord.gg/4A6mrhtfAz" target="_self" rel="me">My Discord server</a>
+                    </li>
+                    <li class="list-inline-item"><a href="https://github.com/kode54" target="_self" rel="me">GitHub</a></li>
+                    <li class="list-inline-item"><a href="https://bitbucket.org/losnoco" target="_self" rel="me">Bitbucket</a></li>
+                    <li class="list-inline-item"><a href="https://www.threads.net/@kode54" target="_self" rel="me">Threads</a></li>
+                    <li class="list-inline-item"><a href="https://t.me/kode54" target="_self" rel="me">Telegram</a></li>
+                </ul>
+                {% if "contact" not in current_path %}
+                <hr /><a class="btn btn-primary btn-lg btn-block" href="{{get_url(path="@/contact/_index.md")}}" role="button">Contact
+                    me</a>
+                {% endif %}
+            </div>
+        </div>
     </div>
-    <div class="footer">
-        <div class="container py-4 px-3 mx-auto my-auto"><em>&copy; 2000&mdash;2023 Christopher Snowhill. All rights
+    <div class="footer bg-body-tertiary pb-5">
+        <div class="container-xxl py-4 px-3 mx-auto my-auto "><em>&copy; 2000&mdash;2023 Christopher Snowhill. All rights
                 reserved except where indicated.</em>
             <div class="float-end"><a href="https://www.netlify.com"><img
                         src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg"

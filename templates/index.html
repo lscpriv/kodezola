@@ -2,31 +2,13 @@
 
 {% block content %}
 <h1>{{section.title}}</h1>
-
-<h2><a href="{{get_url(path="@/blog/_index.md")}}" >Blog <span class="badge bg-secondary">New!</span></a></h2>
-
 {{section.content|safe}}
-<hr />
-<h2>Donate</h2>
-<ul class="list-inline">
-    <li class="list-inline-item"><a href="https://paypal.me/kode54" target="_self">PayPal</a></li>
-    <li class="list-inline-item"><a href="https://ko-fi.com/kode54" target="_self">Ko-fi</a></li>
-    <li class="list-inline-item"><a href="https://patreon.com/kode54" target="_self">Patreon</a></li>
-    <li class="list-inline-item"><a href="https://github.com/sponsors/kode54" target="_self">GitHub Sponsors</a></li>
-</ul>
-<hr />
-<h2>Social media links </h2>
-<div class="alert alert-warning" role="alert"><span>I am <strong>NOT</strong> on Twitter/"X". Anyone under the username
-        <code>kode54</code> in that service is an impostor.</span></div>
-<ul class="list-inline">
-    <li class="list-inline-item"><a href="https://social.losno.co/@chris" target="_self" rel="me">Mastodon</a></li>
-    <li class="list-inline-item"><a href="https://discord.gg/4A6mrhtfAz" target="_self" rel="me">My Discord server</a>
-    </li>
-    <li class="list-inline-item"><a href="https://github.com/kode54" target="_self" rel="me">GitHub</a></li>
-    <li class="list-inline-item"><a href="https://bitbucket.org/losnoco" target="_self" rel="me">Bitbucket</a></li>
-    <li class="list-inline-item"><a href="https://www.threads.net/@kode54" target="_self" rel="me">Threads</a></li>
-    <li class="list-inline-item"><a href="https://t.me/kode54" target="_self" rel="me">Telegram</a></li>
-</ul>
-<hr /><a class="btn btn-primary btn-lg btn-block" href="{{get_url(path="@/contact/_index.md")}}" role="button">Contact
-    me</a>
+<h2><a href="{{get_url(path="@/blog/_index.md")}}">Blog <span class="badge bg-secondary">New!</span></a></h2>
+{% set blog = get_section(path="blog/_index.md") %}
+{% set latest_blog_post = blog.pages.0 %}
+
+<h4><a href="{{latest_blog_post.permalink}}">{{ latest_blog_post.title }}</a><span style="font-weight: 400;"> - {{latest_blog_post.date |
+    date(format="%B %e, %Y")}}</span></h4>
+<p>{{latest_blog_post.summary|safe}}</p>
+<a href="{{latest_blog_post.permalink}}">Read more &raquo;</a>
 {% endblock content %}
