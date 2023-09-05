@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %} {{section.title}} - Christopher Snowhill {% endblock title%}
+{% block title %} {{section.title}} - Christopher Snowhill {% endblock title %}
+
+{% block meta %}
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{section.title}}">
+    <meta property="og:url" content="{{section.permalink}}">
+    <meta property="og:image" content="https://secure.gravatar.com/avatar/d06436ad17e8bce09279190a9b085ff2?s=1024">
+    <meta property="og:description" content="My blog posts">
+{% endblock  %}
 
 {% block content %}
 <h3><a href="/">Christopher Snowhill</a></h3>

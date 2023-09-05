@@ -8,17 +8,14 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap">
     <link rel="stylesheet" href="/style.css">
+    {% block meta %}
     <meta name="description"
         content="Hello, my name is Christopher Snowhill, or kode54, and I've been writing software since as long as I can remember.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Christopher Snowhill">
     <meta property="og:image" content="https://secure.gravatar.com/avatar/d06436ad17e8bce09279190a9b085ff2?s=1024">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="kode54.net">
-    <meta name="twitter:title" content="Christopher Snowhill">
-    <meta name="twitter:description"
-        content="Hello, my name is Christopher Snowhill, or kode54, and I've been writing software since as long as I can remember.">
-    <meta name="twitter:image" content="https://secure.gravatar.com/avatar/d06436ad17e8bce09279190a9b085ff2?s=1024">
+
+    {% endblock %}
     <title>{% block title %}Christopher Snowhill{% endblock %}</title>
     
 </head>
@@ -30,6 +27,9 @@
             {% block content %} {% endblock %}
             </div>
             <div class="col-12 col-md-4">
+                <div class="d-block d-md-none">
+                    <hr />
+                </div>
                 <h2>Donate</h2>
                 <ul class="list-inline">
                     <li class="list-inline-item"><a href="https://paypal.me/kode54" target="_self">PayPal</a></li>
@@ -39,8 +39,7 @@
                 </ul>
                 <hr />
                 <h2>Social media links </h2>
-                <div class="alert alert-warning" role="alert"><span>I am <strong>NOT</strong> on Twitter/"X". Anyone under the username
-                        <code>kode54</code> in that service is an impostor.</span></div>
+
                 <ul class="list-inline">
                     <li class="list-inline-item"><a href="https://social.losno.co/@chris" target="_self" rel="me">Mastodon</a></li>
                     <li class="list-inline-item"><a href="https://discord.gg/4A6mrhtfAz" target="_self" rel="me">My Discord server</a>
@@ -50,6 +49,9 @@
                     <li class="list-inline-item"><a href="https://www.threads.net/@kode54" target="_self" rel="me">Threads</a></li>
                     <li class="list-inline-item"><a href="https://t.me/kode54" target="_self" rel="me">Telegram</a></li>
                 </ul>
+
+                <div class="alert alert-warning" role="alert"><span>I am <strong>NOT</strong> on Twitter/"X". Anyone under the username
+                    <code>kode54</code> in that service is an impostor.</span></div>
                 {% if "contact" not in current_path %}
                 <hr /><a class="btn btn-primary btn-lg btn-block" href="{{get_url(path="@/contact/_index.md")}}" role="button">Contact
                     me</a>

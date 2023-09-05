@@ -1,9 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %} {{page.title}} - Christopher Snowhill {% endblock title%}
+{% block title %} {{page.title}} - Christopher Snowhill {% endblock title %}
+
+{% block meta %}
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{page.title}}">
+    <meta property="og:url" content="{{page.permalink}}">
+    <meta property="og:image" content="https://secure.gravatar.com/avatar/d06436ad17e8bce09279190a9b085ff2?s=1024">
+    <meta property="og:description" content="{{page.summary}}">
+    <meta property="article:author" content="Christopher Snowhill">
+    <meta property="article:published_time" content="{{page.date}}">
+    <meta property="article:section" content="Blog">
+{% endblock  %}
+
 {% block content %}
 <h3><a href="/">Christopher Snowhill</a></h3>
-<h4><a href="/{{page.components.0}}">Blog {% if page.components.0 == "blog-archive" %}archive{%endif%}</a></h3>
+<h4><a href="/{{page.components.0}}">Blog {% if page.components.0 == "blog-archive" %}archive{%endif%}</a></h4>
     {% if page.lower %}
     <div class="float-start">
         <a href="{{page.lower.permalink}}">&laquo; {{page.lower.title}}</a>
@@ -31,4 +43,4 @@
         async>
     </script>
     {% endif %}
-    {% endblock content %}
+    {% endblock  %}
