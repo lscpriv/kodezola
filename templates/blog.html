@@ -27,7 +27,7 @@
 
 <div class="posts">
     {% for page in paginator.pages %}
-    <div class="pb-5">
+    <div class="pb-5" role="article">
         <h4><a href="{{page.permalink}}">{{ page.title }}</a><span style="font-weight: 400;"> - {{page.date |
                 date(format="%B %e, %Y")}}</span></h4>
         <p>{{page.summary|safe}}</p>

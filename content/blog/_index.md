@@ -6,7 +6,7 @@ page_template = "blog-page.html"
 
 paginate_by = 10
 
-generate_feed = false
+generate_feed = true
 
 [extra]
 archive=false
