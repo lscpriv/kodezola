@@ -1,30 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap'); 
+
 $primary: #0d6775;
 $link-decoration: none;
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 html,
 body {
-    font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-synthesis: none;
+    font-family: 'Recursive', sans-serif;
     hyphens: auto;
+    letter-spacing: -0.025em;
+    
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1 {
+    font-weight: 1000;
+}
+h2 {
     font-weight: 800;
+}
+h3 {
+    font-weight: 600;
+}
+h4 {
+    font-weight: 400;
+}
+
+a:link {
+    transition: font-weight 500ms cubic-bezier(0.215, 0.610, 0.355, 1.000); 
+    //font-weight: 400;
+    &:hover {
+        font-weight: 800;
+    }
+} 
+
+em {
+    font-variation-settings: "slnt" -15;
 }
 
 .headline {
     font-size: 16pt;
 }
 
+.casual {
+    font-variation-settings: "CASL" 1 !important;
+}
+
+
 code,
 pre {
-    font-family: 'Space Mono', monospace;
+    font-family: 'Recursive', monospace;
+    font-variation-settings: "MONO" 1;
 }
 
 img {

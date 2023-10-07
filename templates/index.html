@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{section.title}}</h1>
+<h1>Christopher <span class="causal">&ldquo;kode54&rdquo;</span> Snowhill</h1>
 {{section.content|safe}}
 <h2><a href="{{get_url(path="@/blog/_index.md")}}">Blog <span class="badge bg-secondary">New!</span></a></h2>
 {% set blog = get_section(path="blog/_index.md") %}
