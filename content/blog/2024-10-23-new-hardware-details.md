@@ -1,6 +1,6 @@
 ---
 title: "New hardware, details"
-date: 2024-10-23T05:27:16-07:00
+date: 2024-10-23T05:39:51-07:00
 ---
 
 I compiled detailed lists of my current two production machines on PCPartPicker, for the curious
