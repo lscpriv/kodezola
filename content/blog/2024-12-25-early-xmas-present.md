@@ -3,7 +3,7 @@ title: "Opened a present early"
 date: 2024-12-25T00:38:17-08:00
 ---
 
-Happy Christmas to all, or Festivus, or Hannukah, or Kwanzaa, or whatever holiday you happen to celibrate this season, if any. I unwrapped my first present, which was the only one which was technically to myself.
+Happy Christmas to all, or Festivus, or Hannukah, or Kwanzaa, or whatever holiday you happen to celebrate this season, if any. I unwrapped my first present, which was the only one which was technically to myself.
 
 <!-- more -->
 
