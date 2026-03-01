@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://assets.losno.co/fonts/IosevkaLoSnoCo/IosevkaLoSnoCo.css"/>
+    <link rel="stylesheet" href="https://assets.losno.co/fonts/IosevkaLoSnoCoNoLig/IosevkaLoSnoCoNoLig.css"/>
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="/blog/rss.xml", trailing_slash=false) }}">
     <meta name="fediverse:creator" content="@chris@social.losno.co" />
     {% block meta %}
@@ -17,21 +19,30 @@
     <meta property="og:image" content="https://secure.gravatar.com/avatar/d06436ad17e8bce09279190a9b085ff2?s=1024">
     {% endblock %}
     <title>{% block title %}Christopher Snowhill{% endblock %}</title>
-    
 </head>
 
 <body class="d-flex flex-column h-100">
+    <nav class="navbar sticky-top site-navbar" aria-label="Site navigation">
+        <div class="container-xxl">
+            <a class="navbar-brand" href="/">Christopher Snowhill</a>
+            <div class="d-flex gap-3">
+                <a class="nav-link" href="{{ get_url(path='@/blog/_index.md') }}">Blog</a>
+                <a class="nav-link" href="{{ get_url(path='@/contact/_index.md') }}">Contact</a>
+            </div>
+        </div>
+    </nav>
+
     <main class="flex-shrink-0">
         <div class="container-xxl py-4 px-3 mx-auto my-auto">
             <div class="row">
-                <div class="col-12 col-md-8">        
+                <div class="col-12 col-md-8">
                 {% block content %} {% endblock %}
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="d-block d-md-none">
                         <hr />
                     </div>
-                    <h2>Donate</h2>
+                    <h2>Support</h2>
                     <ul class="list-inline">
                         <li class="list-inline-item"><a href="https://paypal.me/kode54" target="_self">PayPal</a></li>
                         <li class="list-inline-item"><a href="https://ko-fi.com/kode54" target="_self">Ko-fi</a></li>
@@ -39,36 +50,34 @@
                         <li class="list-inline-item"><a href="https://github.com/sponsors/kode54" target="_self">GitHub Sponsors</a></li>
                     </ul>
                     <hr />
-                    <h2>Social media links </h2>
-
+                    <h2>Social</h2>
                     <ul class="list-inline">
-                        <li class="list-inline-item"><a href="https://social.losno.co/@chris" target="_self" rel="me">Mastodon 🐘</a></li>
-                        <li class="list-inline-item"><a href="https://bsky.app/profile/kode54.net" target="_self" rel="me">Bluesky 🦋</a></li>
-                        <li class="list-inline-item"><a href="https://discord.gg/4A6mrhtfAz" target="_self" rel="me">My Discord server 💬</a></li>
-                        <li class="list-inline-item"><a href="https://github.com/kode54" target="_self" rel="me">GitHub 🐙</a></li>
-                        <li class="list-inline-item"><a href="https://bitbucket.org/losnoco" target="_self" rel="me">Bitbucket 🪣</a></li>
-                        <li class="list-inline-item"><a href="https://www.threads.net/@kode54" target="_self" rel="me">Threads 🧵</a></li>
+                        <li class="list-inline-item"><a href="https://social.losno.co/@chris" target="_self" rel="me">Mastodon</a></li>
+                        <li class="list-inline-item"><a href="https://bsky.app/profile/kode54.net" target="_self" rel="me">Bluesky</a></li>
+                        <li class="list-inline-item"><a href="https://discord.gg/4A6mrhtfAz" target="_self" rel="me">Discord</a></li>
+                        <li class="list-inline-item"><a href="https://github.com/kode54" target="_self" rel="me">GitHub</a></li>
+                        <li class="list-inline-item"><a href="https://bitbucket.org/losnoco" target="_self" rel="me">Bitbucket</a></li>
+                        <li class="list-inline-item"><a href="https://www.threads.net/@kode54" target="_self" rel="me">Threads</a></li>
                     </ul>
 
-                    <div class="alert alert-warning" role="alert"><span>I am <strong>NOT</strong> on Twitter/"X". Anyone under the username
-                        <code>kode54</code> in that service is an impostor.</span></div>
+                    <div class="alert alert-warning" role="alert">I am <strong>not</strong> on Twitter/&ldquo;X&rdquo;. Anyone
+                        under <code>kode54</code> there is an impostor.</div>
                     {% if "contact" not in current_path %}
-                    <hr /><a class="btn btn-primary btn-lg btn-block" href="{{get_url(path="@/contact/_index.md")}}" role="button">Contact
-                        me</a>
+                    <hr /><a class="btn btn-primary btn-lg btn-block" href="{{get_url(path="@/contact/_index.md")}}" role="button">Contact me</a>
                     {% endif %}
                 </div>
             </div>
         </div>
     </main>
-    <footer class="footer bg-body-tertiary pb-5 mt-auto ">
-        <div class="container-xxl py-4 px-3 mx-auto my-auto "><em>&copy; 2000&mdash;2025 Christopher Snowhill. All rights
-                reserved except where indicated.</em>
+    <footer class="footer bg-body-tertiary pb-5 mt-auto">
+        <div class="container-xxl py-4 px-3 mx-auto my-auto">
+            <em>&copy; 2000&mdash;2025 Christopher Snowhill. All rights reserved except where indicated.</em>
             <div class="float-end"><a href="https://www.netlify.com"><img
                         src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg"
-                        alt="Deploys by Netlify"></a></div>
+                        alt="Deploys by Netlify" style="height: 26px; width: auto;"></a></div>
         </div>
-    </div>
-    <script src="/autoDarkMode.js"> </script>
+    </footer>
+    <script src="/autoDarkMode.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+// ── Local fonts ───────────────────────────────────────────────────────────────
+
 @font-face {
     font-family: "Inter LoSnoCo";
     font-style: normal;
@@ -14,59 +16,256 @@
     src: url("inter_losnoco_italic.woff2") format("woff2");
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,MONO@-15..0,300..1000,1&display=swap');
+// ── LoSnoCo color palette ─────────────────────────────────────────────────────
+// Teal is Chris (Sno). Orange is Kevin (Lo). Chris's site → teal leads.
 
-$primary: #0d6775;
-$link-decoration: none;
+$losnoco-teal:       #00967F;  // teal-light: contrast-safe on white/light
+$losnoco-teal-vivid: #0DF2C9;  // teal: badge/dark mode only
+$losnoco-orange:     #F25E0D;  // orange: warnings, alerts, not primary UI
+$losnoco-purple:     #7b41b9;
+$losnoco-bg:         #F4F3F0;
+$losnoco-surface:    #ECEAE5;
+$losnoco-border:     #D8D5CE;
+$losnoco-muted:      #888880;
+$losnoco-text:       #1A1917;
+
+// ── Bootstrap variable overrides ──────────────────────────────────────────────
+
+// Theme colors: teal leads, orange reserved for warnings
+$primary:   $losnoco-teal;
+$secondary: $losnoco-muted;
+$warning:   $losnoco-orange;
+$light:     $losnoco-surface;
+$dark:      $losnoco-text;
+
+// Body
+$body-bg:              $losnoco-bg;
+$body-color:           $losnoco-text;
+$body-secondary-color: $losnoco-muted;
+$body-tertiary-bg:     $losnoco-surface;
+
+// Links
+$link-color:           $losnoco-teal;
+$link-decoration:      none;
+$link-hover-decoration: underline;
+
+// Typography
+$font-family-base: 'Inter LoSnoCo', sans-serif;
+$font-family-code: 'Iosevka LoSnoCo NoLig Web', monospace;
+$font-size-base:   1rem;     // actual size set on html below (15px)
+$line-height-base: 1.65;
+
+$h1-font-size: 1.75rem;
+$h2-font-size: 1.4rem;
+$h3-font-size: 1.1rem;
+$h4-font-size: 0.95rem;
+$headings-font-weight: 700;
+$headings-line-height: 1.3;
+
+// Borders
+$border-color:    $losnoco-border;
+$border-radius:   8px;
+$border-radius-sm: 4px;
+$border-radius-lg: 10px;
+$border-radius-xl: 12px;
+
+// Cards
+$card-bg:           $losnoco-surface;
+$card-border-color: $losnoco-border;
+$card-cap-bg:       transparent;
+
+// Navbar
+$navbar-padding-y:                0.6rem;
+$navbar-light-color:              rgba($losnoco-muted, 1);
+$navbar-light-hover-color:        $losnoco-text;
+$navbar-light-active-color:       $losnoco-teal;
+$navbar-light-brand-color:        $losnoco-text;
+$navbar-light-brand-hover-color:  $losnoco-teal;
+$navbar-light-toggler-border-color: transparent;
+
+// Forms / inputs
+$input-bg:                    $losnoco-surface;
+$input-border-color:          $losnoco-border;
+$input-focus-border-color:    $losnoco-teal;
+$input-focus-box-shadow:      0 0 0 0.2rem rgba($losnoco-teal, 0.2);
+$input-placeholder-color:     $losnoco-muted;
+
+// Buttons
+$btn-border-radius:   6px;
+$btn-font-weight:     600;
+$btn-padding-y:       0.5rem;
+$btn-padding-x:       1.25rem;
+
+// Alerts — left-border style tuned after import
+$alert-border-radius: 0 6px 6px 0;
+
+// Badges
+$badge-border-radius: 4px;
+$badge-font-weight:   600;
+$badge-padding-y:     0.3em;
+$badge-padding-x:     0.55em;
+
+// Pagination
+$pagination-color:         $losnoco-teal;
+$pagination-active-bg:     $losnoco-teal;
+$pagination-active-border-color: $losnoco-teal;
+$pagination-hover-color:   darken($losnoco-teal, 10%);
+$pagination-bg:            $losnoco-surface;
+$pagination-border-color:  $losnoco-border;
+
+// ── Bootstrap import ──────────────────────────────────────────────────────────
+
+$link-shade-percentage: 20%;
+$link-hover-color: darken($losnoco-teal, 12%);
+
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-html,
-body {
-    font-family: 'Inter LoSnoCo', "Inter", sans-serif;
+// ── Base overrides ────────────────────────────────────────────────────────────
+
+html {
+    font-size: 15px;
+    font-feature-settings: "ss01","ss02","ss03","tnum","case","dlig";
     hyphens: auto;
-    //letter-spacing: -0.025em;
 }
 
-h1 {
-    font-weight: 1000;
-}
-h2 {
-    font-weight: 800;
-}
-h3 {
-    font-weight: 600;
-}
-h4 {
-    font-weight: 400;
-}
+// Heading letter-spacing (not a Bootstrap variable)
+h1 { letter-spacing: -0.025em; }
+h2 { letter-spacing: -0.02em;  }
+h3 { letter-spacing: -0.01em;  }
 
-a:link {
-    transition: font-weight 500ms cubic-bezier(0.215, 0.610, 0.355, 1.000); 
-    //font-weight: 400;
-    &:hover {
-        font-weight: 800;
-    }
-} 
-
-em {
-    font-variation-settings: "slnt" -15;
-}
-
-.headline {
-    font-size: 16pt;
-}
-
-.casual {
-    font-variation-settings: "CASL" 1 !important;
-}
-
-
-code,
-pre {
-    font-family: 'Recursive', monospace;
-    font-variation-settings: "MONO" 1;
-}
+// Italic via font axis rather than synthesis
+em { font-style: italic; }
 
 img {
-    @extend .img-fluid, .mx-auto, .d-block;
+    @extend .img-fluid;
+}
+
+// Center bare images in rendered markdown (blog posts, pages)
+// without breaking floated avatar/thumbnail images that carry explicit classes
+.col-md-8 img:not([class]) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Code / pre: Iosevka for blocks, NoLig for inline
+code, kbd {
+    font-family: 'Iosevka LoSnoCo NoLig Web', monospace;
+    font-size: 0.84em;
+}
+
+pre {
+    font-family: 'Iosevka LoSnoCo Web', monospace;
+    font-size: 0.85rem;
+    background: $losnoco-surface;
+    border: 1px solid $losnoco-border;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    line-height: 1.6;
+
+    code {
+        background: none;
+        padding: 0;
+        font-size: inherit;
+        font-family: inherit;
+    }
+}
+
+// ── Sticky nav ────────────────────────────────────────────────────────────────
+
+.site-navbar {
+    background: rgba($losnoco-bg, 0.92) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid $losnoco-border;
+
+    .navbar-brand {
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+    }
+
+    .nav-link {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding-top: 0.35rem;
+        padding-bottom: 0.35rem;
+    }
+}
+
+// ── Section labels ────────────────────────────────────────────────────────────
+// Teal leads on Chris's site; orange reserved for actual warnings/alerts.
+
+.sec-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $losnoco-teal;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+// ── Alert overrides ───────────────────────────────────────────────────────────
+// Recast Bootstrap alerts as left-border callouts.
+
+.alert {
+    border-width: 0 0 0 3px;
+    border-radius: 0 6px 6px 0;
+    background-color: $losnoco-surface;
+}
+
+.alert-warning {
+    border-color: $losnoco-orange;
+    color: $losnoco-text;
+    background-color: $losnoco-surface;
+}
+
+.alert-primary {
+    border-color: $losnoco-teal;
+    color: $losnoco-text;
+    background-color: $losnoco-surface;
+}
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+
+.footer {
+    font-size: 0.75rem;
+    color: $losnoco-muted;
+    letter-spacing: 0.02em;
+
+    a { color: $losnoco-muted; }
+    a:hover { color: $losnoco-text; }
+}
+
+// ── Blog post list ────────────────────────────────────────────────────────────
+
+.posts .pb-5 {
+    border-bottom: 1px solid $losnoco-border;
+    padding-bottom: 1.5rem !important;
+
+    &:last-child { border-bottom: none; }
+}
+
+// ── Sidebar headings ──────────────────────────────────────────────────────────
+
+.col-md-4 h2 {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $losnoco-teal;
+    margin-bottom: 0.75rem;
+}
+
+// ── Article breadcrumb links ──────────────────────────────────────────────────
+
+h3 > a, h4 > a {
+    color: $losnoco-muted;
+    text-decoration: none;
+    font-weight: inherit;
+
+    &:hover { color: $losnoco-teal; text-decoration: none; }
 }
