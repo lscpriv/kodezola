@@ -95,6 +95,18 @@ $pagination-hover-color:   darken($losnoco-teal, 10%);
 $pagination-bg:            $losnoco-surface;
 $pagination-border-color:  $losnoco-border;
 
+// ── Dark mode — LoSnoCo teal-tinted dark palette ───────────────────────────────
+// These override Bootstrap's _variables-dark.scss defaults before compilation.
+
+$body-bg-dark:               #111C1A;  // very dark teal-tinted near-black
+$body-color-dark:            #E5EFED;  // cool near-white
+$body-secondary-color-dark:  #7A9E98;  // cool-tinted muted
+$body-secondary-bg-dark:     #182926;  // dark surface
+$body-tertiary-bg-dark:      #182926;  // dark surface (cards, code blocks)
+$border-color-dark:          #243D38;  // subtle dark separator
+$link-color-dark:            #0DF2C9;  // vivid teal — reads on dark backgrounds
+$link-hover-color-dark:      lighten(#0DF2C9, 8%);
+
 // ── Bootstrap import ──────────────────────────────────────────────────────────
 
 $link-shade-percentage: 20%;
@@ -177,6 +189,23 @@ pre {
     }
 }
 
+[data-bs-theme="dark"] {
+    .site-navbar {
+        background: rgba(17, 28, 26, 0.92) !important;
+        border-bottom-color: #243D38;
+
+        .navbar-brand {
+            color: #E5EFED;
+            &:hover { color: #0DF2C9; }
+        }
+
+        .nav-link {
+            color: #7A9E98;
+            &:hover, &:focus { color: #E5EFED; }
+        }
+    }
+}
+
 // ── Section labels ────────────────────────────────────────────────────────────
 // Teal leads on Chris's site; orange reserved for actual warnings/alerts.
 
@@ -250,4 +279,49 @@ h3 > a, h4 > a {
     font-weight: inherit;
 
     &:hover { color: $losnoco-teal; text-decoration: none; }
+}
+
+// ── Dark mode component overrides ─────────────────────────────────────────────
+// Bootstrap's dark theme handles body/surface/border via CSS vars above.
+// These fix components with hardcoded light-mode colors.
+
+[data-bs-theme="dark"] {
+    pre {
+        background: #182926;
+        border-color: #243D38;
+    }
+
+    .alert {
+        background-color: #182926;
+    }
+
+    .alert-warning {
+        border-color: $losnoco-orange;
+        color: #E5EFED;
+        background-color: #182926;
+    }
+
+    .alert-primary {
+        border-color: #0DF2C9;
+        color: #E5EFED;
+        background-color: #182926;
+    }
+
+    .sec-label {
+        color: #0DF2C9;
+    }
+
+    .col-md-4 h2 {
+        color: #0DF2C9;
+    }
+
+    h3 > a, h4 > a {
+        color: #7A9E98;
+        &:hover { color: #0DF2C9; }
+    }
+
+    .footer {
+        a { color: #7A9E98; }
+        a:hover { color: #E5EFED; }
+    }
 }
